@@ -1,0 +1,23 @@
+.m-slide--variant-2 {
+    .m-slide {
+        &__code {
+            @include in-landscape {
+                position: absolute;
+                right: 2 * $space-vw;
+                bottom: calc((100vh - 10 * #{$space-vw}) / 2);
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .a-qr-code {
+        @include in-landscape {
+            width: 12 * $space-vw;
+            transform: translateY(50%);
+        }
+
+        &::after {
+            content: 'Zum Artikel';
+        }
+    }
+}

@@ -1,0 +1,41 @@
+.o-display {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    &__gate {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    &__logo {
+        position: absolute;
+        right: 2 * $space-vw;
+        bottom: 1 * $space-vw;
+
+        @include in-portrait {
+            right: 50%;
+            bottom: 3 * $space-vh;
+            transform: translate(50%, 50%);
+        }
+    }
+
+    &__frame {
+        position: absolute;
+        top: 2 * $space-vw;
+        right: 2 * $space-vw;
+        bottom: 4 * $space-vw;
+        left: 2 * $space-vw;
+
+        @include in-portrait {
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 6 * $space-vh;
+        }
+    }
+}
