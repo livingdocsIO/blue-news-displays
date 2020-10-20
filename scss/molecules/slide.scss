@@ -101,11 +101,11 @@
     }
 
     &.is-next {
-        transform: translateX(calc(-100% - 2 * #{$space-vw} - 1px)) scale(.5);
+        transform: translateX(calc(-100% - 2 * #{$space-vw} - 1px));
         visibility: hidden;
 
         @include in-portrait {
-            transform: translateX(calc(-100% - 1px)) scale(.5);
+            transform: translateX(calc(-100% - 1px));
         }
 
         .m-slide {

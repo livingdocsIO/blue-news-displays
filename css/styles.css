@@ -181,11 +181,11 @@
   .m-slide.is-uninitialized {
     opacity: 0; }
   .m-slide.is-next {
-    transform: translateX(calc(-100% - 2 * 2vw - 1px)) scale(0.5);
+    transform: translateX(calc(-100% - 2 * 2vw - 1px));
     visibility: hidden; }
     @media (max-aspect-ratio: 1 / 1) {
       .m-slide.is-next {
-        transform: translateX(calc(-100% - 1px)) scale(0.5); } }
+        transform: translateX(calc(-100% - 1px)); } }
     .m-slide.is-next .m-slide__flag, .m-slide.is-next .m-slide__title, .m-slide.is-next .m-slide__code {
       transform: translateY(-10vw);
       opacity: 0; }
