@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/styles.css">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="../js/script.js"></script>
     </head>
     <body class="t-display">
         <div class="o-display">
@@ -20,74 +22,68 @@
                 
                 <div class="m-slide is-next">
                     <div class="m-slide__image">
-                        <img src="../assets/preview-content/teaser-image-1.jpg" />
+                        <img src="../assets/placeholder.png" />
                     </div>
                     <div class="m-slide__info">
                         <div class="m-slide__code">
                             <div class="a-qr-code">
-                                <img class="a-qr-code__code" src="../assets/preview-content/qr-code.png" />
+                                <img class="a-qr-code__code" src="../assets/placeholder.png" />
                             </div>
                         </div>
-                        <div class="m-slide__flag">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
-                        <div class="m-slide__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                        <div class="m-slide__flag">…</div>
+                        <div class="m-slide__title">…</div>
+                    </div>
+                    <div class="m-slide__progress">
+                        <div class="a-progress">
+                            <div class="a-progress__bar"></div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="m-slide is-current">
+                <div class="m-slide is-current is-uninitialized">
                     <div class="m-slide__image">
-                        <img src="../assets/preview-content/teaser-image-2.jpg" />
+                        <img src="../assets/placeholder.png" />
                     </div>
                     <div class="m-slide__info">
                         <div class="m-slide__code">
                             <div class="a-qr-code">
-                                <img class="a-qr-code__code" src="../assets/preview-content/qr-code.png" />
+                                <img class="a-qr-code__code" src="../assets/placeholder.png" />
                             </div>
                         </div>
-                        <div class="m-slide__flag">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
-                        <div class="m-slide__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                        <div class="m-slide__flag">…</div>
+                        <div class="m-slide__title">…</div>
+                    </div>
+                    <div class="m-slide__progress">
+                        <div class="a-progress">
+                            <div class="a-progress__bar"></div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="m-slide is-previous">
+                <div class="m-slide is-previous is-uninitialized">
                     <div class="m-slide__image">
-                        <img src="../assets/preview-content/teaser-image-3.jpg" />
+                        <img src="../assets/placeholder.png" />
                     </div>
                     <div class="m-slide__info">
                         <div class="m-slide__code">
                             <div class="a-qr-code">
-                                <img class="a-qr-code__code" src="../assets/preview-content/qr-code.png" />
+                                <img class="a-qr-code__code" src="../assets/placeholder.png" />
                             </div>
                         </div>
-                        <div class="m-slide__flag">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
-                        <div class="m-slide__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                        <div class="m-slide__flag">…</div>
+                        <div class="m-slide__title">…</div>
+                    </div>
+                    <div class="m-slide__progress">
+                        <div class="a-progress">
+                            <div class="a-progress__bar"></div>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
-
-        <script>
-            const queryString = window.location.search
-            const urlParams = new URLSearchParams(queryString)
-            const variant = urlParams.get('variant') || 1
-
-            $('.m-slide').addClass(`m-slide--variant-${variant}`)
-
-            function nextSlide() {
-                const previousSlide = $('.m-slide.is-previous')
-                const currentSlide = $('.m-slide.is-current')
-                const nextSlide = $('.m-slide.is-next')
-
-                nextSlide.removeClass('is-next').addClass('is-current')
-                currentSlide.removeClass('is-current').addClass('is-previous')
-                previousSlide.removeClass('is-previous').addClass('is-next')
-            }
-
-            window.setInterval(nextSlide, 10000)
-            
-            $(window).ready(function() {
-                nextSlide()
-            })
-        </script>
+        <div class="a-scope-mask">
+            <img class="a-scope-mask__image" src="../assets/scope-mask.png" />
+        </div>
     </body>
 </html>
