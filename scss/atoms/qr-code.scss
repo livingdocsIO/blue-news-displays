@@ -29,14 +29,12 @@
 
 @keyframes glow {
     0%      {box-shadow: 0 0 transparent; transform: scale(1);}
-    75%     {box-shadow: 0 0 transparent; transform: scale(1);}
-    87.5%   {box-shadow: 0 0 $space-vw $space-vw / 4 $color-blue-2; transform: scale(1.05);}
+    50%   {box-shadow: 0 0 $space-vw $space-vw / 4 $color-blue-2; transform: scale(1.05);}
     100%    {box-shadow: 0 0 transparent; transform: scale(1);}
 }
 
 @keyframes glow-in-portrait {
     0%      {box-shadow: 0 0 transparent; transform: scale(1);}
-    75%     {box-shadow: 0 0 transparent; transform: scale(1);}
-    87.5%   {box-shadow: 0 0 2 * $space-vw $space-vw / 2 $color-blue-2; transform: scale(1.05);}
+    50%   {box-shadow: 0 0 2 * $space-vw $space-vw / 2 $color-blue-2; transform: scale(1.05);}
     100%    {box-shadow: 0 0 transparent; transform: scale(1);}
 }

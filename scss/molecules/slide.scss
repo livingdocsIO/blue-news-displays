@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     background-color: $color-black;
-    transition: transform 1s;
+    transition: transform 1.5s;
 
     &__image {
         position: absolute;
@@ -54,7 +54,7 @@
     &__code {
         margin-bottom: $space-vw;
         transition: transform 1s, opacity 1s;
-        transition-delay: 3.5s;
+        transition-delay: 4.5s;
 
         @include in-portrait {
             margin-bottom: 2 * $space-vw;
@@ -65,9 +65,9 @@
         @include textshadow;
         font-size: .75 * $space-vw;
         line-height: 120%;
-        margin-bottom: .5 * $space-vw;
+        margin-bottom: .125 * $space-vw;
         transition: transform 1s, opacity 1s;
-        transition-delay: .75s;
+        transition-delay: 2s;
 
         @include in-portrait {
             font-size: 2 * $space-vw;
@@ -82,7 +82,7 @@
         line-height: 120%;
         margin-bottom: -.5 * $space-vw;
         transition: transform 1s, opacity 1s;
-        transition-delay: .5s;
+        transition-delay: 1.5s;
 
         @include in-portrait {
             font-size: 4 * $space-vw;
@@ -132,7 +132,8 @@
         .a-qr-code {
             &__code {
                 animation-name: glow;
-                animation-duration: 6s;
+                animation-duration: 1s;
+                animation-delay: 5.5s;
 
                 @include in-portrait {
                     animation-name: glow-in-portrait;
@@ -143,7 +144,6 @@
         .a-progress {
             &__bar {
                 width: 100%;
-                background-color: rgba($color-white, .5);
             }
         }
     }
