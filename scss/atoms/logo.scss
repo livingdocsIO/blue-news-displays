@@ -1,6 +1,6 @@
 .a-logo {
     &__image {
-        height: 2 * $space-vw;
+        height: 1.5 * $space-vw;
 
         @include in-portrait {
             height: 3 * $space-vh;

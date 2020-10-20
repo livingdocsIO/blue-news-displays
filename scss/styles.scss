@@ -1,11 +1,12 @@
 @import './general';
 
+@import './atoms/scope-mask';
 @import './atoms/gate';
 @import './atoms/logo';
+@import './atoms/progress';
 @import './atoms/qr-code';
 
 @import './molecules/slide';
-@import './molecules/slide-variant-1-2-3';
 @import './molecules/slide-variant-2';
 @import './molecules/slide-variant-3';
 

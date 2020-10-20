@@ -14,8 +14,8 @@
 
     &__logo {
         position: absolute;
-        right: 2 * $space-vw;
-        bottom: 1 * $space-vw;
+        right: 4 * $space-vw;
+        bottom: 4 * $space-vw;
 
         @include in-portrait {
             right: 50%;
@@ -26,10 +26,10 @@
 
     &__frame {
         position: absolute;
-        top: 2 * $space-vw;
-        right: 2 * $space-vw;
-        bottom: 4 * $space-vw;
-        left: 2 * $space-vw;
+        top: 4 * $space-vw;
+        right: 4 * $space-vw;
+        bottom: 6 * $space-vw;
+        left: 4 * $space-vw;
 
         @include in-portrait {
             top: 0;

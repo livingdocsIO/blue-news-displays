@@ -5,6 +5,7 @@
     top: 0;
     left: 0;
     background-color: $color-black;
+    transition: transform 1s;
 
     &__image {
         position: absolute;
@@ -21,6 +22,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 15s linear;
         }
 
         &::after {
@@ -38,17 +40,21 @@
         position: absolute;
         bottom: 2 * $space-vw;
         left: 2 * $space-vw;
-        padding-right: calc(100% / 3);
+        right: 2 * $space-vw;
+        padding-right: calc(100% / 3.5);
 
         @include in-portrait {
             bottom: 4 * $space-vw;
             left: 4 * $space-vw;
-            padding-right: 4 * $space-vw;
+            right: 4 * $space-vw;
+            padding-right: 0;
         }
     }
 
     &__code {
         margin-bottom: $space-vw;
+        transition: transform 1s, opacity 1s;
+        transition-delay: 3.5s;
 
         @include in-portrait {
             margin-bottom: 2 * $space-vw;
@@ -56,9 +62,12 @@
     }
 
     &__flag {
-        font-size: $space-vw;
+        @include textshadow;
+        font-size: .75 * $space-vw;
         line-height: 120%;
         margin-bottom: .5 * $space-vw;
+        transition: transform 1s, opacity 1s;
+        transition-delay: .75s;
 
         @include in-portrait {
             font-size: 2 * $space-vw;
@@ -67,31 +76,80 @@
     }
 
     &__title {
-        font-size: 2 * $space-vw;
+        @include textshadow;
+        font-size: 1.5 * $space-vw;
         font-weight: 800;
         line-height: 120%;
         margin-bottom: -.5 * $space-vw;
+        transition: transform 1s, opacity 1s;
+        transition-delay: .5s;
 
         @include in-portrait {
             font-size: 4 * $space-vw;
         }
     }
 
+    &__progress {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+
+    &.is-uninitialized {
+        opacity: 0;
+    }
+
     &.is-next {
-        transform: translateX(calc(-100% - 2 * $space-vw - 1px));
+        transform: translateX(calc(-100% - 2 * #{$space-vw} - 1px)) scale(.5);
         visibility: hidden;
 
         @include in-portrait {
-            transform: translateX(calc(-100% - 1px));
+            transform: translateX(calc(-100% - 1px)) scale(.5);
+        }
+
+        .m-slide {
+            &__flag,
+            &__title,
+            &__code {
+                transform: translateY(-5 * $space-vw);
+                opacity: 0;
+            }
         }
     }
 
     &.is-current {
         z-index: 1;
+
+        .m-slide {
+            &__image {
+                img {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        .a-qr-code {
+            &__code {
+                animation-name: glow;
+                animation-duration: 6s;
+
+                @include in-portrait {
+                    animation-name: glow-in-portrait;
+                }
+            }
+        }
+
+        .a-progress {
+            &__bar {
+                width: 100%;
+                background-color: rgba($color-white, .5);
+            }
+        }
     }
 
     &.is-previous {
-        transform: translateX(calc(100% + 2 * $space-vw + 1px));
+        transform: translateX(calc(100% + 4 * #{$space-vw} + 1px));
         z-index: 1;
 
         @include in-portrait {

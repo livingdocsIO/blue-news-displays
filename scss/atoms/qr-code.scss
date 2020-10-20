@@ -1,20 +1,24 @@
 .a-qr-code {
-    width: 8 * $space-vw;
+    width: 5 * $space-vw;
 
     @include in-portrait {
         width: 14 * $space-vw;
     }
 
     &__code {
+        box-sizing: border-box;
         width: 100%;
+        padding: .25 * $space-vw;
         transition: box-shadow .5s;
         border-radius: .25 * $space-vw;
+        background-color: $color-white;
     }
 
     &::after {
+        @include textshadow;
         content: 'Jetzt lesen';
         display: block;
-        font-size: 1 * $space-vw;
+        font-size: .75 * $space-vw;
         text-align: center;
 
         @include in-portrait {

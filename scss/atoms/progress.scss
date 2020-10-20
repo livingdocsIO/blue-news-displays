@@ -1,0 +1,15 @@
+.a-progress {
+    position: relative;
+    width: 100%;
+    height: .2 * $space-vh;
+
+    &__bar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        background-color: transparent;
+        transition: width 15s linear, background-color 15s ease;
+    }
+}

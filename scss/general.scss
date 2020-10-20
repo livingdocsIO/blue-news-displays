@@ -40,6 +40,10 @@ $space-vh: 2vh;
     font-weight: 800;
 }
 
+@mixin textshadow () {
+    text-shadow: .05 * $space-vw .05 * $space-vw .075 * $space-vw rgba($color-black, .5);
+}
+
 @mixin in-portrait () {
     @media (max-aspect-ratio: 1/1) { @content; }
 }
