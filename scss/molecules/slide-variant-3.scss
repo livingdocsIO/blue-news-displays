@@ -47,7 +47,8 @@
         .m-slide {
             &__code {
                 animation-name: glow;
-                animation-duration: 6s;
+                animation-duration: 1s;
+                animation-delay: 6.5s;
 
                 @include in-portrait {
                     animation-name: glow-in-portrait;

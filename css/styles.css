@@ -140,8 +140,8 @@
         padding-right: 0; } }
   .m-slide__code {
     margin-bottom: 2vw;
-    transition: transform 1s, opacity 1s;
-    transition-delay: 4.5s; }
+    transition: transform 1.25s, opacity 1.25s;
+    transition-delay: 5.5s; }
     @media (max-aspect-ratio: 1 / 1) {
       .m-slide__code {
         margin-bottom: 4vw; } }
@@ -150,8 +150,8 @@
     font-size: 1.5vw;
     line-height: 120%;
     margin-bottom: 0.25vw;
-    transition: transform 1s, opacity 1s;
-    transition-delay: 2s; }
+    transition: transform 1.25s, opacity 1.25s;
+    transition-delay: 3s; }
     @media (max-aspect-ratio: 1 / 1) {
       .m-slide__flag {
         font-size: 4vw;
@@ -162,8 +162,8 @@
     font-weight: 800;
     line-height: 120%;
     margin-bottom: -1vw;
-    transition: transform 1s, opacity 1s;
-    transition-delay: 1.5s; }
+    transition: transform 1.25s, opacity 1.25s;
+    transition-delay: 2s; }
     @media (max-aspect-ratio: 1 / 1) {
       .m-slide__title {
         font-size: 8vw; } }
@@ -190,7 +190,7 @@
     .m-slide.is-current .a-qr-code__code {
       animation-name: glow;
       animation-duration: 1s;
-      animation-delay: 5.5s; }
+      animation-delay: 6.5s; }
       @media (max-aspect-ratio: 1 / 1) {
         .m-slide.is-current .a-qr-code__code {
           animation-name: glow-in-portrait; } }
@@ -259,7 +259,8 @@
 
 .m-slide--variant-3.is-current .m-slide__code {
   animation-name: glow;
-  animation-duration: 6s; }
+  animation-duration: 1s;
+  animation-delay: 6.5s; }
   @media (max-aspect-ratio: 1 / 1) {
     .m-slide--variant-3.is-current .m-slide__code {
       animation-name: glow-in-portrait; } }
