@@ -41,7 +41,7 @@ $space-vh: 2vh;
 }
 
 @mixin textshadow () {
-    text-shadow: 0 0 .125 * $space-vw rgba($color-black, .5);
+    text-shadow: .05 * $space-vw .05 * $space-vw .075 * $space-vw rgba($color-black, .5);
 }
 
 @mixin in-portrait () {
