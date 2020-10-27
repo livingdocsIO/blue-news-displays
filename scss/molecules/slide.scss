@@ -24,16 +24,6 @@
             object-fit: cover;
             transition: transform 15s linear;
         }
-
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba($color-black, .25);
-        }
     }
 
     &__info {

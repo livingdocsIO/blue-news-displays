@@ -64,7 +64,7 @@
     border-radius: 0.5vw;
     background-color: #ffffff; }
   .a-qr-code::after {
-    text-shadow: 0.1vw 0.1vw 0.15vw rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 0.25vw rgba(0, 0, 0, 0.5);
     content: 'Jetzt lesen';
     display: block;
     font-size: 1.5vw;
@@ -118,14 +118,6 @@
       height: 100%;
       object-fit: cover;
       transition: transform 15s linear; }
-    .m-slide__image::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.25); }
   .m-slide__info {
     position: absolute;
     bottom: 4vw;
@@ -146,7 +138,7 @@
       .m-slide__code {
         margin-bottom: 4vw; } }
   .m-slide__flag {
-    text-shadow: 0.1vw 0.1vw 0.15vw rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 0.25vw rgba(0, 0, 0, 0.5);
     font-size: 1.5vw;
     line-height: 120%;
     margin-bottom: 0.25vw;
@@ -157,7 +149,7 @@
         font-size: 4vw;
         margin-bottom: 2vw; } }
   .m-slide__title {
-    text-shadow: 0.1vw 0.1vw 0.15vw rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 0.25vw rgba(0, 0, 0, 0.5);
     font-size: 3vw;
     font-weight: 800;
     line-height: 120%;
