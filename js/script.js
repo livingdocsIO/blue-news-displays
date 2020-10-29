@@ -7,6 +7,12 @@ const data = {
       "QRlink": "https://www.bluewin.ch/de/sport/tennis/zu-wenige-basler-wollen-eine-roger-federer-arena-451227.html"
     },
     {
+      "flag":"Freude am Fahren, testen Sie jetzt",
+      "title":"Gänsehaut. Für die Augen.",
+      "imageUrl": "../assets/preview-content/teaser-image-12.jpg",
+      "QRlink": "https://www.bmw.ch/de/bmw-neuwagen/m/m4-coupe/2020/bmw-4er-coupe-m-automobile-ueberblick.html"
+    },
+    {
       "flag":"Bald ist es so weit: Am 20. Oktober startet die Champions-League-Saison 2020/21. Verfolgen Sie alle Spiele live auf blue Sport",
       "title":"2 Monate geschenkt - Die Champions League ist zurück – live auf blue Sport!",
       "imageUrl": "../assets/preview-content/teaser-image-5.jpg",
@@ -38,7 +44,7 @@ let numSlides = 0
 
 function init() {
   const timePerSlide = 15000
-  const timeToInitialize = 250
+  const timeToInitialize = 2000
   numSlides = data.slides.length
 
   const queryString = window.location.search
@@ -53,7 +59,6 @@ function init() {
 
   window.setTimeout(function(){
     if (numSlides > 1) indexSlide++
-
     swapSlides()
   }, timeToInitialize)
 
