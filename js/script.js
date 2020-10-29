@@ -53,12 +53,13 @@ function init() {
 
   $('.m-slide').addClass(`m-slide--variant-${variant}`)
 
-  window.setInterval(swapSlides, timePerSlide)
-
   fillContentIntoNextSlide()
 
   window.setTimeout(function(){
-    if (numSlides > 1) indexSlide++
+    if (numSlides > 1) {
+      window.setInterval(swapSlides, timePerSlide)
+      indexSlide++
+    }
     swapSlides()
   }, timeToInitialize)
 
