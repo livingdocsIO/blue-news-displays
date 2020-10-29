@@ -155,6 +155,20 @@
         @include in-portrait {
             transform: translateX(calc(100% + 1px));
         }
+
+        .m-slide {
+            &__image {
+                img {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        .a-progress {
+            &__bar {
+                width: 100%;
+            }
+        }
     }
 }
 
