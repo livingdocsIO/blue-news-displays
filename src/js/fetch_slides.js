@@ -23,9 +23,11 @@ function toSlideData (document) {
   const articleUrl = `${config.canonicalBaseUrl}${metadata.routing.path}`
   const qrOverride = metadata.cinemaQrCodeContent
   return {
-    flag: metadata.teaserLead,
-    title: metadata.title,
-    imageUrl: metadata.teaserImage && metadata.teaserImage.url,
+    flag: metadata.cinemaSlideLead || metadata.teaserLead,
+    title: metadata.cinemaSlideTitle || metadata.title,
+    imageUrl: metadata.cinemaSlideImage
+      ? metadata.cinemaSlideImage.url
+      : metadata.teaserImage && metadata.teaserImage.url,
     qrLink: qrOverride || articleUrl,
     config: {
       duration: metadata.cinemaSlideDuration,

@@ -94,8 +94,17 @@ function fillContentIntoNextSlide () {
   const qr = nextSlide.find('.a-qr-code__code')
   const slideData = state.getCurrentSlide()
 
-  flag.text(slideData.flag)
-  title.text(slideData.title)
+  if (slideData.flag) {
+    flag.text(slideData.flag)
+  } else {
+    flag.text(config.defaults.slideText)
+  }
+
+  if (slideData.title) {
+    title.text(slideData.title)
+  } else {
+    title.text(config.defaults.slideText)
+  }
 
   if (slideData.imageUrl) {
     image.attr('src', slideData.imageUrl)
