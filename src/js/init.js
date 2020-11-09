@@ -131,7 +131,7 @@ function fillContentIntoNextSlide () {
   }
 
   const qrLinkWithParams = appendQueryParams(slideData.qrLink, state.qrProxyParams)
-  QRCode.toDataURL(qrLinkWithParams)
+  QRCode.toDataURL(qrLinkWithParams, {margin: 1})
     .then(url => {
       qr.attr('src', url)
     })
