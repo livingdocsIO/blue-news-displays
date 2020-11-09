@@ -1,4 +1,19 @@
-.m-slide--variant-2 {
+.t-display--variant-2 {
     .m-slide {
+        &__info {
+            right: 1.5 * $space-vw;
+
+            @include in-portrait {
+                right: 2 * $space-vw;
+            }
+        }
+    }
+
+    .a-qr-code {
+        width: 13.5 * $space-vw;
+
+        @include in-portrait {
+            width: 14 * $space-vw;
+        }
     }
 }

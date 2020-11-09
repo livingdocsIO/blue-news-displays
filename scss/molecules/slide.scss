@@ -108,10 +108,6 @@
         opacity: 0;
         visibility: hidden;
 
-        @include in-portrait {
-            transform: translateX(calc(-100% - 1px));
-        }
-
         .m-slide {
             &__flag,
             &__title,
@@ -155,10 +151,6 @@
     &.is-previous {
         opacity: 0;
         z-index: 1;
-
-        @include in-portrait {
-            transform: translateX(calc(100% + 1px));
-        }
 
         .m-slide {
             &__image {

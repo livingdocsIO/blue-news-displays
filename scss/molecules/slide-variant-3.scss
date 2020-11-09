@@ -1,0 +1,10 @@
+@include in-portrait {
+    .t-display--variant-3 {
+        .o-display {
+            &__frame {
+                top: 18vh;
+                bottom: 18vh;
+            }
+        }
+    }
+}
