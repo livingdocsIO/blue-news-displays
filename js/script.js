@@ -44,7 +44,7 @@ let numSlides = 0
 
 function init() {
   const timePerSlide = 15000
-  const timeToInitialize = 2000
+  const timeToInitialize = 4000
   numSlides = data.slides.length
 
   const queryString = window.location.search

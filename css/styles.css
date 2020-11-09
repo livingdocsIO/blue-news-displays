@@ -207,13 +207,18 @@
       width: 100%; }
 
 .t-display--variant-2 .m-slide__info {
-  right: 3vw; }
+  right: 0; }
   @media (max-aspect-ratio: 1 / 1) {
     .t-display--variant-2 .m-slide__info {
       right: 4vw; } }
 
+.t-display--variant-2 .m-slide.is-current .a-qr-code, .t-display--variant-2 .m-slide.is-previous .a-qr-code {
+  transform: translateY(50%) scale(1);
+  transition: transform 18s linear; }
+
 .t-display--variant-2 .a-qr-code {
-  width: 27vw; }
+  width: 34vw;
+  transform: translateY(50%) scale(0.25); }
   @media (max-aspect-ratio: 1 / 1) {
     .t-display--variant-2 .a-qr-code {
       width: 28vw; } }

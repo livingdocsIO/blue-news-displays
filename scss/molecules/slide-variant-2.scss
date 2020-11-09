@@ -1,16 +1,25 @@
 .t-display--variant-2 {
     .m-slide {
         &__info {
-            right: 1.5 * $space-vw;
+            right: 0;
 
             @include in-portrait {
                 right: 2 * $space-vw;
             }
         }
+
+        &.is-current,
+        &.is-previous {
+            .a-qr-code {
+                transform: translateY(50%) scale(1);
+                transition: transform 18s linear;
+            }
+        }
     }
 
     .a-qr-code {
-        width: 13.5 * $space-vw;
+        width: 17 * $space-vw;
+        transform: translateY(50%) scale(.25);
 
         @include in-portrait {
             width: 14 * $space-vw;
