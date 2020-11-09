@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     background-color: $color-black;
-    transition: transform 1.5s;
+    transition: opacity 2.5s;
 
     &__image {
         position: absolute;
@@ -41,7 +41,7 @@
         bottom: 2 * $space-vw;
         left: 2 * $space-vw;
         right: 2 * $space-vw;
-        padding-right: calc(100% / 3.5);
+        padding-right: calc(100% / 2.5);
 
         @include in-portrait {
             bottom: 4 * $space-vw;
@@ -52,11 +52,15 @@
     }
 
     &__code {
-        margin-bottom: $space-vw;
+        position: absolute;
+        right: 0;
+        bottom: calc((100vh - 15 * #{$space-vw}) / 2);
+        margin-bottom: 0;
         transition: transform 1.25s, opacity 1.25s;
         transition-delay: 5.5s;
 
         @include in-portrait {
+            position: static;
             margin-bottom: 2 * $space-vw;
         }
     }
@@ -101,7 +105,7 @@
     }
 
     &.is-next {
-        transform: translateX(calc(-100% - 2 * #{$space-vw} - 1px));
+        opacity: 0;
         visibility: hidden;
 
         @include in-portrait {
@@ -149,7 +153,7 @@
     }
 
     &.is-previous {
-        transform: translateX(calc(100% + 4 * #{$space-vw} + 1px));
+        opacity: 0;
         z-index: 1;
 
         @include in-portrait {

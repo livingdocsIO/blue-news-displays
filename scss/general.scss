@@ -48,7 +48,3 @@ $space-vh: 2vh;
     @media (max-aspect-ratio: 1/1) { @content; }
 }
 
-/* landscape is default */
-@mixin in-landscape () {
-    @media (min-aspect-ratio: 1/1) { @content; }
-}

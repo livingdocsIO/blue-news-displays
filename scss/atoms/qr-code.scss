@@ -1,8 +1,10 @@
 .a-qr-code {
-    width: 5 * $space-vw;
+    width: 8 * $space-vw;
+    transform: translateY(50%);
 
     @include in-portrait {
         width: 14 * $space-vw;
+        transform: none;
     }
 
     &__code {
@@ -16,7 +18,7 @@
 
     &::after {
         @include textshadow;
-        content: 'Jetzt lesen';
+        content: 'Zum Artikel';
         display: block;
         font-size: .75 * $space-vw;
         text-align: center;
