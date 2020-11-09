@@ -10,7 +10,7 @@ export default {
   },
   defaults: {
     slideDuration: 15,
-    slideText: '...',
+    slideText: '',
     slideImage: './assets/placeholder.png',
     qrCtaText: 'Zum Artikel'
   }

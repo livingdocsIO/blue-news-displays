@@ -102,6 +102,7 @@
 
     &.is-uninitialized {
         opacity: 0;
+        visibility: hidden;
     }
 
     &.is-next {

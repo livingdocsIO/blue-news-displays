@@ -1,8 +1,8 @@
 import $ from 'jquery'
 import QRCode from 'qrcode'
+import config from '../config'
 import { getQueryParams } from './get_query_params'
 import { fetchSlides } from './fetch_slides'
-import config from '../config'
 import { appendQueryParams } from './append_query_params'
 
 const state = {
@@ -11,6 +11,10 @@ const state = {
   currentSlideIndex: 0,
   getCurrentSlide () {
     return this.slides[this.currentSlideIndex]
+  },
+  getLastSlide () {
+    if (this.currentSlideIndex === 0) return this.slides[this.slides.length - 1]
+    return this.slides[this.currentSlideIndex - 1]
   },
   activateNextSlide () {
     if (this.hasNextSlide()) {
@@ -40,7 +44,7 @@ export async function init () {
     console.warn('init(): no query parameters found for the qr link')
   }
 
-  $('.m-slide').addClass(`m-slide--variant-${variant || 1}`)
+  $('.t-display').addClass(`t-display--variant-${variant || 1}`)
   if (!variant) console.warn('init(): "variant" query parameter missing, falling back to variant 1.')
 
   const slides = await fetchSlides({list})
@@ -62,9 +66,11 @@ export async function init () {
 }
 
 function scheduleNextSlide () {
-  const slideData = state.getCurrentSlide()
+  const slideData = state.getLastSlide()
   const duration = slideData.config.duration || config.defaults.slideDuration
-  window.setTimeout(() => swapSlides({initial: false}), duration * 1000)
+  const durationMs = duration * 1000
+  $('.a-progress__bar').css('transition-duration', `${durationMs}ms`)
+  window.setTimeout(() => swapSlides({initial: false}), durationMs)
 }
 
 function swapSlides ({initial}) {
