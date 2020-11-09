@@ -1,0 +1,50 @@
+$color-black: #000000; 
+
+$color-gray-1: #141414;
+$color-gray-2: #222222;
+$color-gray-3: #2e2e2e;
+$color-gray-4: #929292;
+$color-gray-5: #e6e6e6;
+$color-gray-6: #b1b9be;
+$color-gray-7: #dbe4e8;
+$color-gray-8: #575757;
+
+$color-white: #ffffff;
+
+$color-blue-1: #001155;
+$color-blue-2: #11aaff;
+$color-blue-3: #086adb;
+$color-blue-4: #0787ee;
+$color-blue-5: #0095fd;
+$color-blue-6: #ced5d9;
+$color-blue-7: #0daba9;
+$color-blue-8: #26abfe;
+$color-blue-9: #1a7edd;
+$color-blue-10: #0048cf;
+$color-blue-11: #000626;
+
+$color-red-1: #e61e64;
+
+$space-vw: 2vw;
+$space-vh: 2vh;
+
+@font-face {
+    font-family: TheSans;
+    src: url('../fonts/TheSans/TheSansB_500_.woff');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: TheSans;
+    src: url('../fonts/TheSans/TheSansB_800_.woff');
+    font-weight: 800;
+}
+
+@mixin textshadow () {
+    text-shadow: .05 * $space-vw .05 * $space-vw .075 * $space-vw rgba($color-black, .5);
+}
+
+@mixin in-portrait () {
+    @media (max-aspect-ratio: 1/1) { @content; }
+}
+
