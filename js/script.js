@@ -51,7 +51,8 @@ function init() {
   const urlParams = new URLSearchParams(queryString)
   const variant = urlParams.get('variant') || 1
 
-  $('.m-slide').addClass(`m-slide--variant-${variant}`)
+  $('.t-display').addClass(`t-display--variant-${variant}`)
+  $('.a-progress__bar').css('transition-duration', `${timePerSlide}ms`)
 
   fillContentIntoNextSlide()
 
@@ -94,7 +95,7 @@ function swapSlides() {
   fillContentIntoNextSlide()
 
   indexSlide++
-  if (indexSlide > numSlides) indexSlide = 0
+  if (indexSlide >= numSlides) indexSlide = 0
 }
 
 function toggleScope() {
