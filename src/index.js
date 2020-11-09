@@ -3,4 +3,6 @@ import { init } from './js/init'
 
 import './scss/styles.scss'
 
-$(window).on('load', init)
+$(function() {
+  init()
+});
