@@ -41,7 +41,7 @@
         bottom: 2 * $space-vw;
         left: 2 * $space-vw;
         right: 2 * $space-vw;
-        padding-right: calc(100% / 2.5);
+        padding-right: calc(100% / 2.25);
 
         @include in-portrait {
             bottom: 4 * $space-vw;
