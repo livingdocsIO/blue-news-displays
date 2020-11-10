@@ -44,29 +44,35 @@ let numSlides = 0
 
 function init() {
   const timePerSlide = 15000
-  const timeToInitialize = 4000
   numSlides = data.slides.length
 
   const queryString = window.location.search
   const urlParams = new URLSearchParams(queryString)
   const variant = urlParams.get('variant') || 1
 
-  $('.t-display').addClass(`t-display--variant-${variant}`)
+  // apply timing
   $('.a-progress__bar').css('transition-duration', `${timePerSlide}ms`)
+  // apply variant and set initialized class to allow further steps
+  $('.t-display').addClass(`t-display--variant-${variant}`).addClass('is-initialized')
 
-  fillContentIntoNextSlide()
+  // Wait for variant class to be properly applied to prevent false rendering of first slide
+  let initializeInterval = window.setInterval(function() {
+    if ( $('.t-display').hasClass('is-initialized') ) {
+      clearInterval(initializeInterval);
 
-  window.setTimeout(function(){
-    if (numSlides > 1) {
-      window.setInterval(swapSlides, timePerSlide)
-      indexSlide++
+      fillContentIntoNextSlide()
+
+      if (numSlides > 1) {
+        window.setInterval(swapSlides, timePerSlide)
+        indexSlide++
+      }
+      swapSlides()
+    
+      $('.t-display').on( "click", function() {
+        toggleScope()
+      })
     }
-    swapSlides()
-  }, timeToInitialize)
-
-  $('.t-display').on( "click", function() {
-    toggleScope()
-  })
+  }, 100)
 }
 
 function fillContentIntoNextSlide() {
