@@ -32,10 +32,10 @@
         left: 4 * $space-vw;
 
         @include in-portrait {
-            top: 0;
+            top: 9 * $space-vh;
             right: 0;
             left: 0;
-            bottom: 6 * $space-vh;
+            bottom: 9 * $space-vh;
         }
     }
 }
