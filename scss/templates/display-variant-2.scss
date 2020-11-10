@@ -1,0 +1,32 @@
+// modifier for Silverscreen
+.t-display--variant-2 {
+    .m-slide {
+        &__info {
+            right: $space-vw;
+        }
+
+        &.is-current,
+        &.is-previous {
+            .a-qr-code {
+                transform: translateY(calc(50% + #{.5 * $space-vw})) scale(1);
+                transition: transform 2s ease;
+                transition-delay: 8s;
+
+                &::after {
+                    opacity: 0;
+                    transition: opacity 1s linear;
+                    transition-delay: 8s;
+                }
+            }
+        }
+    }
+
+    .a-qr-code {
+        width: 14.5 * $space-vw;
+        transform: translateY(50%) scale(.5);
+
+        &::after {
+            font-size: 1.5 * $space-vw;
+        }
+    }
+}
