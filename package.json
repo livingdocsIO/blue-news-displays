@@ -1,6 +1,6 @@
 {
   "name": "blue-news-displays",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Show Blue News on Cinema Displays",
   "main": "index.js",
   "dependencies": {
