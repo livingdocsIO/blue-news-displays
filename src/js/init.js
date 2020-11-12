@@ -12,9 +12,11 @@ const state = {
   getCurrentSlide () {
     return this.slides[this.currentSlideIndex]
   },
-  getLastSlide () {
-    if (this.currentSlideIndex === 0) return this.slides[this.slides.length - 1]
-    return this.slides[this.currentSlideIndex - 1]
+  getLastSlide ({offset} = {}) {
+    if (!offset) offset = 0
+    const targetIdx = this.currentSlideIndex - (1 + offset)
+    if (targetIdx < 0) return this.slides[this.slides.length + targetIdx]
+    return this.slides[targetIdx]
   },
   activateNextSlide () {
     if (this.hasNextSlide()) {
@@ -44,18 +46,20 @@ export async function init () {
     console.warn('init(): no query parameters found for the qr link')
   }
 
-  $('.t-display').addClass(`t-display--variant-${variant || 1}`)
-  if (!variant) console.warn('init(): "variant" query parameter missing, falling back to variant 1.')
-
   const slides = await fetchSlides({list})
   if (slides && slides.length) {
     state.slides = slides
   }
 
+  $('.t-display').addClass(`t-display--variant-${variant || 1}`).addClass('is-initialized')
+  if (!variant) console.warn('init(): "variant" query parameter missing, falling back to variant 1.')
+
+  await isDisplayInitialized()
+
   if (state.slides.length > 1) {
     fillContentIntoNextSlide()
     state.activateNextSlide()
-    scheduleNextSlide()
+    scheduleNextSlide({initial: true})
     swapSlides({initial: true})
   }
 
@@ -65,8 +69,21 @@ export async function init () {
   })
 }
 
-function scheduleNextSlide () {
-  const slideData = state.getLastSlide()
+function isDisplayInitialized () {
+  return new Promise((resolve) => {
+    const intervalId = window.setInterval(() => {
+      const isInitialized = $('.t-display').hasClass('is-initialized')
+      if (!isInitialized) return
+
+      window.clearInterval(intervalId)
+      return resolve()
+    }, 100)
+  })
+}
+
+function scheduleNextSlide ({initial}) {
+  const slideData = state.getLastSlide({offset: initial ? 0 : 1})
+  console.log(slideData)
   const duration = slideData.config.duration || config.defaults.slideDuration
   const durationMs = duration * 1000
   $('.a-progress__bar').css('transition-duration', `${durationMs}ms`)
@@ -87,7 +104,7 @@ function swapSlides ({initial}) {
   state.activateNextSlide()
 
   if (!initial) {
-    scheduleNextSlide()
+    scheduleNextSlide({initial})
   }
 }
 

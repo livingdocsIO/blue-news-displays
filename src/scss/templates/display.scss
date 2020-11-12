@@ -5,4 +5,8 @@
     background-color: $color-blue-1;
     color: $color-white;
     font-family: TheSans;
+
+    &:not(.is-initialized) {
+        display: none;
+    }
 }
