@@ -83,7 +83,6 @@ function isDisplayInitialized () {
 
 function scheduleNextSlide ({initial}) {
   const slideData = state.getLastSlide({offset: initial ? 0 : 1})
-  console.log(slideData)
   const duration = slideData.config.duration || config.defaults.slideDuration
   const durationMs = duration * 1000
   $('.a-progress__bar').css('transition-duration', `${durationMs}ms`)
