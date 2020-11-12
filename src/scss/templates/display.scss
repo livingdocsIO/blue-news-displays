@@ -1,0 +1,12 @@
+// standard display for Lobby Landscape and Lobby Portrait
+.t-display {
+    padding: 0;
+    margin: 0;
+    background-color: $color-blue-1;
+    color: $color-white;
+    font-family: TheSans;
+
+    &:not(.is-initialized) {
+        display: none;
+    }
+}
