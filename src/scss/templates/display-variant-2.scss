@@ -2,7 +2,7 @@
 .t-display--variant-2 {
     .m-slide {
         &__info {
-            right: $space-vw;
+            right: 0;
         }
 
         &.is-current,
@@ -22,7 +22,7 @@
     }
 
     .a-qr-code {
-        width: 14.5 * $space-vw;
+        width: 17 * $space-vw;
         transform: translateY(50%) scale(.5);
 
         &::after {
