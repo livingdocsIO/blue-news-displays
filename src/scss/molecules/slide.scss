@@ -53,6 +53,7 @@
 
     &__code {
         position: absolute;
+        z-index: 1;
         right: 0;
         bottom: calc((100vh - 15 * #{$space-vw}) / 2);
         margin-bottom: 0;
@@ -132,13 +133,9 @@
 
         .a-qr-code {
             &__code {
-                animation-name: glow;
+                animation-name: bump;
                 animation-duration: 1s;
                 animation-delay: 6.5s;
-
-                @include in-portrait {
-                    animation-name: glow-in-portrait;
-                }
             }
         }
 
