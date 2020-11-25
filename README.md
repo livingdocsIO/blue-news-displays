@@ -15,6 +15,16 @@ Build for Production
 npm run build
 ```
 
+Push to Live
+```
+git pull main
+git checkout github-pages
+git rebase main
+npm run build
+git add . && git commit -am 'fix: build version xxx
+git push -f
+```
+
 ## Rendered Display Examples
 ### Silverscreen
 http://localhost:8080/?variant=2&list=bluecinema:weekend&cinema=Capitol&place=Lucerne&room=42
