@@ -15,6 +15,17 @@ Build for Production
 npm run build
 ```
 
+## Rendered Display Examples
+### Silverscreen
+http://localhost:8080/?variant=2&list=bluecinema:weekend&cinema=Capitol&place=Lucerne&room=42
+
+### Lobby Vertical
+http://localhost:8080/?variant=3&list=bluecinema:weekend&cinema=Capitol&place=Lucerne&room=42
+
+### Lobby Horizontal
+http://localhost:8080/?variant=4&list=bluecinema:weekend&cinema=Capitol&place=Lucerne&room=42
+
+
 ## Changelog
 ```
 0.0.1 - Initial setup
@@ -27,4 +38,5 @@ npm run build
 0.0.8 - Added scale transition to QR Code in variant 2
 0.0.9 - Standard is now for Lobby Landscape and Portrait, Variant 2 is now for Silverscreen. Silverscreen animation updated. Startup fixed.
 0.1.0 - New Setup for Production
+0.1.1 – Updated QR animation (removed glow, larger target size in variant 2)
 ```
