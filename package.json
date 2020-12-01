@@ -1,6 +1,6 @@
 {
   "name": "blue-news-displays",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Show Blue News on Cinema Displays",
   "private": true,
   "scripts": {

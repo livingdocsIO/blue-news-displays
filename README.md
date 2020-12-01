@@ -49,4 +49,5 @@ http://localhost:8080/?variant=4&list=bluecinema:weekend&cinema=Capitol&place=Lu
 0.0.9 - Standard is now for Lobby Landscape and Portrait, Variant 2 is now for Silverscreen. Silverscreen animation updated. Startup fixed.
 0.1.0 - New Setup for Production
 0.1.1 – Updated QR animation (removed glow, larger target size in variant 2)
+0.1.2 – Removed all superfluous padding on QR code, adjusted QR position to match results as seen in Visnoth's cinema video
 ```
