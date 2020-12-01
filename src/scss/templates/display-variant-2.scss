@@ -5,6 +5,10 @@
             right: 0;
         }
 
+        &__code {
+            right: $space-vw / 4;
+        }
+
         &.is-current,
         &.is-previous {
             .a-qr-code {
@@ -22,7 +26,7 @@
     }
 
     .a-qr-code {
-        width: 17 * $space-vw;
+        width: calc(100vh - #{10.5 * $space-vw});
         transform: translateY(50%) scale(.5);
 
         &::after {
