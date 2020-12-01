@@ -21,7 +21,7 @@ git pull main
 git checkout github-pages
 git rebase main
 npm run build
-git add . && git commit -am 'fix: build version xxx
+git add . && git commit -am 'fix: build version xxx'
 git push -f
 ```
 
