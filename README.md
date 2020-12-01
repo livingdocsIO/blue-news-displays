@@ -35,6 +35,8 @@ http://localhost:8080/?variant=3&list=bluecinema:weekend&cinema=Capitol&place=Lu
 ### Lobby Horizontal
 http://localhost:8080/?variant=4&list=bluecinema:weekend&cinema=Capitol&place=Lucerne&room=42
 
+### Live
+Use https://livingdocsio.github.io/blue-news-displays/dist/ instead of http://localhost:8080/
 
 ## Changelog
 ```
