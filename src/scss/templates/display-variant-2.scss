@@ -7,6 +7,7 @@
 
         &__code {
             right: $space-vw / 4;
+            bottom: calc((100vh - 13.15 * #{$space-vw}) / 2);
         }
 
         &.is-current,
@@ -28,8 +29,13 @@
     .a-qr-code {
         width: calc(100vh - #{10.5 * $space-vw});
         transform: translateY(50%) scale(.5);
+        white-space: nowrap;
 
         &::after {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
             font-size: 1.5 * $space-vw;
         }
     }
