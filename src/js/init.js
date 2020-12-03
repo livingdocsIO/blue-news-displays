@@ -111,6 +111,7 @@ function fillContentIntoNextSlide () {
   const nextSlide = $('.m-slide.is-next')
   const flag = nextSlide.find('.m-slide__flag')
   const title = nextSlide.find('.m-slide__title')
+  const source = nextSlide.find('.m-slide__source')
   const image = nextSlide.find('.m-slide__image img')
   const qrWrapper = nextSlide.find('.a-qr-code')
   const qr = nextSlide.find('.a-qr-code__code')
@@ -126,6 +127,12 @@ function fillContentIntoNextSlide () {
     title.text(slideData.title)
   } else {
     title.text(config.defaults.slideText)
+  }
+
+  if (slideData.source) {
+    source.text(slideData.source)
+  } else {
+    source.text(config.defaults.slideText)
   }
 
   if (slideData.imageUrl) {

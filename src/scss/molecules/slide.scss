@@ -120,6 +120,22 @@
         }
     }
 
+    &__source {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 $space-vw / 4;
+        font-size: .5 * $space-vw;
+        line-height: 200%;
+        background-color: $color-black;
+        opacity: .25;
+
+        @include in-portrait {
+            padding: 0 $space-vw * 2 / 3;
+            font-size: $space-vw;
+        }
+    }
+
     &.is-current {
         z-index: 1;
 
