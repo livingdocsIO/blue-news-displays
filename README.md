@@ -53,4 +53,5 @@ Use https://livingdocsio.github.io/blue-news-displays/dist/ instead of http://lo
 0.1.1 – Updated QR animation (removed glow, larger target size in variant 2)
 0.1.2 – Removed all superfluous padding on QR code, adjusted QR position to match results as seen in Visnoth's cinema video
 0.1.3 – Fixed QR code positionning, added source text element to display image source
+0.1.4 – Replaced gate pic with better quality
 ```
