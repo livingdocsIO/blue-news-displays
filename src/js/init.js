@@ -129,13 +129,31 @@ function fillContentIntoNextSlide () {
     title.text(config.defaults.slideText)
   }
 
-  if (slideData.source) {
-    source.text(slideData.source)
+  if (slideData.imageSource) {
+    source.text(slideData.imageSource)
   } else {
     source.text(config.defaults.slideText)
   }
 
-  if (slideData.imageUrl) {
+  // First tries to get the closest ratio in case there are crops
+  // Otherwise takes the regular url with original ratio
+  // Fallback is empty image
+  if (slideData.imageCrops) {
+    const imageRatio = image.width / image.height
+    const closest = slideData.imageCrops.reduce((prev, curr) => {
+      const prevRatio = prev.width / prev.height
+      const currRatio = curr.width / curr.height
+      if (Math.abs(currRatio - imageRatio) < Math.abs(prevRatio - imageRatio)) {
+        return curr
+      }
+      return prev
+    })
+    if (closest && closest.url) {
+      image.attr('src', closest.url)
+    } else {
+      image.attr('src', slideData.imageUrl)
+    }
+  } else if (slideData.imageUrl) {
     image.attr('src', slideData.imageUrl)
   } else {
     image.attr('src', config.defaults.slideImage)

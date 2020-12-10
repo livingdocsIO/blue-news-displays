@@ -25,9 +25,9 @@ function toSlideData (document) {
   return {
     flag: metadata.cinemaSlideLead,
     title: metadata.cinemaSlideTitle || metadata.title,
-    imageUrl: metadata.cinemaSlideImage
-      ? metadata.cinemaSlideImage.url
-      : metadata.teaserImage && metadata.teaserImage.url,
+    imageSource: metadata.cinemaSlideImageSource,
+    imageUrl: extractImageUrl(metadata),
+    imageCrops: extractImageCrops(metadata),
     qrLink: qrOverride || articleUrl,
     config: {
       duration: metadata.cinemaSlideDuration,
@@ -73,5 +73,19 @@ async function fetchPublicApi ({resource}) {
 }
 
 function fallbackError (message) {
-  return new Error(`Unable to retrieve a list from the public api${message ? `: ${message}` : '.'} Falling back to preview data.`)
+  return new Error(`Unable to retrieve a list from the public api${message ? `: ${message}` : ''}. Falling back to preview data.`)
+}
+
+function extractImageUrl (metadata) {
+  if (!metadata.cinemaSlideImage) {
+    return metadata.teaserImage && metadata.teaserImage.url
+  }
+  return metadata.cinemaSlideImage.url
+}
+
+function extractImageCrops (metadata) {
+  if (!metadata.cinemaSlideImage) {
+    return metadata.teaserImage && metadata.teaserImage.crops
+  }
+  return metadata.cinemaSlideImage.crops
 }
