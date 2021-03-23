@@ -7,25 +7,21 @@ npm install
 
 Start Dev Server
 ```
-npm start
+ENVIRONMENT=local LI_PUBLIC_API_TOKEN=<your-access-token> npm start
 ```
 
 Build for Production
 ```
-npm run build
+ENVIRONMENT=production LI_PUBLIC_API_TOKEN=<your-access-token> npm run build
 ```
 
-Push to Live
+Release to target environment
 ```
-git pull main
-git checkout github-pages
-git rebase main
-npm run build
-git add . && git commit -am 'fix: build version xxx'
-git push -f
+ENVIRONMENT=production LI_PUBLIC_API_TOKEN=<your-access-token> npm run publish
 ```
 
 ## Rendered Display Examples
+
 ### Silverscreen
 http://localhost:8080/?variant=2&list=bluecinema:weekend&cinema=Capitol&place=Lucerne&room=42
 
@@ -39,6 +35,7 @@ http://localhost:8080/?variant=4&list=bluecinema:weekend&cinema=Capitol&place=Lu
 Use https://livingdocsio.github.io/blue-news-displays/dist/ instead of http://localhost:8080/
 
 ## Changelog
+
 ```
 0.0.1 - Initial setup
 0.0.2 - Many updates according to first round of feedback
@@ -54,5 +51,6 @@ Use https://livingdocsio.github.io/blue-news-displays/dist/ instead of http://lo
 0.1.2 – Removed all superfluous padding on QR code, adjusted QR position to match results as seen in Visnoth's cinema video
 0.1.3 – Fixed QR code positionning, added source text element to display image source
 0.1.4 – Replaced gate pic with better quality
-0.1.5 - Wire up source text for image with real data, try determine closes crop ratio for images
+0.1.5 - Wire up source text for image with real data, try determine closest crop ratio for images
+0.1.6 - Release setup and actual release
 ```

@@ -1,8 +1,15 @@
+require('dotenv').config()
 const paths = require('./paths')
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
+
+require('./assert_vars')([
+  'ENVIRONMENT',
+  'LI_PUBLIC_API_TOKEN'
+])
 
 module.exports = {
   entry: [paths.src + '/index.js'],
@@ -26,13 +33,14 @@ module.exports = {
         }
       ]
     }),
-
     new HtmlWebpackPlugin({
       title: 'Blue News',
       favicon: paths.src + '/images/favicon.ico',
       template: paths.src + '/index.html',
-      filename: 'index.html'
-    })
+      filename: 'index.html',
+      publicPath: './'
+    }),
+    new Dotenv()
   ],
 
   // Determine how modules within the project are treated

@@ -1,16 +1,16 @@
-const paths = require('./paths')
 const { merge } = require('webpack-merge')
-const common = require('./webpack.common.js')
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+
+const paths = require('./paths')
+const common = require('./webpack.common.js')
 
 module.exports = merge(common, {
   mode: 'production',
   devtool: false,
   output: {
     path: paths.build,
-    publicPath: '/',
+    publicPath: './',
     filename: 'js/[name].[contenthash].bundle.js'
   },
   plugins: [
