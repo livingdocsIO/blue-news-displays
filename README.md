@@ -5,19 +5,25 @@ Install packages
 npm install
 ```
 
+Env variables setup
+```
+cp .env.sample .env
+```
+And fill in your secrets.
+
 Start Dev Server
 ```
-ENVIRONMENT=local LI_PUBLIC_API_TOKEN=<your-access-token> npm start
+npm start
 ```
 
 Build for Production
 ```
-ENVIRONMENT=production LI_PUBLIC_API_TOKEN=<your-access-token> npm run build
+npm run build
 ```
 
 Release to target environment
 ```
-ENVIRONMENT=production LI_PUBLIC_API_TOKEN=<your-access-token> npm run publish
+npm run publish
 ```
 
 ## Rendered Display Examples
@@ -32,7 +38,7 @@ http://localhost:8080/?variant=3&list=bluecinema:weekend&cinema=Capitol&place=Lu
 http://localhost:8080/?variant=4&list=bluecinema:weekend&cinema=Capitol&place=Lucerne&room=42
 
 ### Live
-Use https://livingdocsio.github.io/blue-news-displays/dist/ instead of http://localhost:8080/
+Use http://blue-news-displays.s3-website.eu-central-1.amazonaws.com/integration/0.1.6/ instead of http://localhost:8080/
 
 ## Changelog
 
