@@ -2,36 +2,31 @@ const environmentConfigs = {
   local: {
     canonicalBaseUrl: 'https://0.0.0.0:9999',
     api: {
-      url: 'http://0.0.0.0:9090',
-      token: process.env.LI_PUBLIC_API_TOKEN
+      url: 'http://0.0.0.0:9999',
     }
   },
   integration: {
     canonicalBaseUrl: 'https://bluewin.livingdocs.io',
     api: {
-      url: 'https://bluewin-editor.livingdocs.io/proxy/li-server',
-      token: process.env.LI_PUBLIC_API_TOKEN
+      url: 'https://bluewin.livingdocs.io',
     }
   },
   development: {
     canonicalBaseUrl: 'https://bluewin.dev.sctv.ch',
     api: {
-      url: 'https://bluewin-cms.dev.sctv.ch/proxy/api',
-      token: process.env.LI_PUBLIC_API_TOKEN
+      url: 'https://bluewin.dev.sctv.ch'
     }
   },
   staging: {
-    canonicalBaseUrl: 'https://bluewin.sta.sctv.ch/',
+    canonicalBaseUrl: 'https://bluewin.sta.sctv.ch',
     api: {
-      url: 'https://bluewin-cms.sta.sctv.ch/proxy/api',
-      token: process.env.LI_PUBLIC_API_TOKEN
+      url: 'https://bluewin.sta.sctv.ch'
     }
   },
   production: {
     canonicalBaseUrl: 'https://www.bluewin.ch',
     api: {
-      url: 'https://bluewin-cms.sctv.ch/proxy/api',
-      token: process.env.LI_PUBLIC_API_TOKEN
+      url: 'https://www.bluewin.ch'
     }
   }
 }

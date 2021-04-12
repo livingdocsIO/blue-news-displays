@@ -7,8 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 
 require('./assert_vars')([
-  'ENVIRONMENT',
-  'LI_PUBLIC_API_TOKEN'
+  'ENVIRONMENT'
 ])
 
 module.exports = {

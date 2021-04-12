@@ -59,12 +59,12 @@ async function getListDocuments ({listId}) {
 }
 
 async function fetchPublicApi ({resource}) {
-  const res = await fetch(`${config.api.url}/api/v1/${resource}`, {
+  const res = await fetch(`${config.api.url}/de/api/${resource}`, {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',
     headers: {
-      'Authorization': `Bearer ${config.api.token}`
+      'Accept': 'application/json'
     }
   })
   const data = await res.json()
