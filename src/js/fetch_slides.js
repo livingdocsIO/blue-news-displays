@@ -23,6 +23,7 @@ function toSlideData (document) {
   const articleUrl = `${config.canonicalBaseUrl}${metadata.routing.path}`
   const qrOverride = metadata.cinemaQrCodeContent
   return {
+    id: document.systemdata.documentId,
     flag: metadata.cinemaSlideLead,
     title: metadata.cinemaSlideTitle || metadata.title,
     imageSource: metadata.cinemaSlideImageSource,
@@ -30,6 +31,8 @@ function toSlideData (document) {
     imageCrops: extractImageCrops(metadata),
     qrLink: qrOverride || articleUrl,
     config: {
+      daysSchedule: metadata.cinemaDaysSchedule,
+      timeSchedule: metadata.cinemaTimeSchedule,
       duration: metadata.cinemaSlideDuration,
       qrHidden: metadata.cinemaQrCodeHidden,
       qrPosition: metadata.cinemaQrCodePosition,

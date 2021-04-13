@@ -12,6 +12,7 @@
   "dependencies": {
     "@babel/runtime": "^7.12.5",
     "jquery": "^3.5.1",
+    "luxon": "^1.26.0",
     "qrcode": "^1.4.4"
   },
   "devDependencies": {

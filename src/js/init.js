@@ -3,6 +3,7 @@ import QRCode from 'qrcode'
 import config from '../config'
 import { getQueryParams } from './get_query_params'
 import { fetchSlides } from './fetch_slides'
+import { filterSlides } from './filter_slides'
 import { appendQueryParams } from './append_query_params'
 
 const state = {
@@ -18,7 +19,17 @@ const state = {
     if (targetIdx < 0) return this.slides[this.slides.length + targetIdx]
     return this.slides[targetIdx]
   },
+  applyScheduling () {
+    const prevSlidesCount = this.slides.length
+    this.slides = filterSlides(this.slides)
+    const afterSlidesCount = this.slides.length
+    const diff = afterSlidesCount - prevSlidesCount
+    this.currentSlideIndex += diff
+  },
   activateNextSlide () {
+    // eagerly filter based on schedule
+    this.applyScheduling()
+
     if (this.hasNextSlide()) {
       this.incrementIndex()
     } else {
@@ -48,7 +59,8 @@ export async function init () {
 
   const slides = await fetchSlides({list})
   if (slides && slides.length) {
-    state.slides = slides
+    // initial filter based on schedule
+    state.slides = filterSlides(slides)
   }
 
   $('.t-display').addClass(`t-display--variant-${variant || 1}`).addClass('is-initialized')
@@ -83,6 +95,10 @@ function isDisplayInitialized () {
 
 function scheduleNextSlide ({initial}) {
   const slideData = state.getLastSlide({offset: initial ? 0 : 1})
+  // NOTE: Reload slides after a full run
+  if (!initial && state.slides[0].id === slideData.id) {
+    window.location.reload()
+  }
   const duration = slideData.config.duration || config.defaults.slideDuration
   const durationMs = duration * 1000
   $('.a-progress__bar').css('transition-duration', `${durationMs}ms`)
