@@ -31,6 +31,7 @@ function toSlideData (document) {
     imageCrops: extractImageCrops(metadata),
     qrLink: qrOverride || articleUrl,
     config: {
+      dateSchedule: metadata.cinemaDateSchedule,
       daysSchedule: metadata.cinemaDaysSchedule,
       timeSchedule: metadata.cinemaTimeSchedule,
       duration: metadata.cinemaSlideDuration,
