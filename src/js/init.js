@@ -129,6 +129,19 @@ function fillContentIntoNextSlide () {
   const title = nextSlide.find('.m-slide__title')
   const source = nextSlide.find('.m-slide__source')
   const image = nextSlide.find('.m-slide__image img')
+  const setImageSource = (imgSrc) => {
+    if (!imgSrc) return
+
+    const currentImageElementWidth = image.width || 0
+    const imgSrcUrl = new URL(imgSrc)
+    const imgSrcWidth = parseInt(imgSrcUrl.searchParams.get('w'))
+    if (isNaN(imgSrcWidth) || imgSrcWidth > currentImageElementWidth) {
+      image.attr('src', imgSrc)
+    } else {
+      imgSrcUrl.searchParams.set('w', currentImageElementWidth)
+      image.attr('src', imgSrcUrl.toString())
+    }
+  }
   const qrWrapper = nextSlide.find('.a-qr-code')
   const qr = nextSlide.find('.a-qr-code__code')
   const slideData = state.getCurrentSlide()
@@ -165,14 +178,14 @@ function fillContentIntoNextSlide () {
       return prev
     })
     if (closest && closest.url) {
-      image.attr('src', closest.url)
+      setImageSource(closest.url)
     } else {
-      image.attr('src', slideData.imageUrl)
+      setImageSource(slideData.imageUrl)
     }
   } else if (slideData.imageUrl) {
-    image.attr('src', slideData.imageUrl)
+    setImageSource(slideData.imageUrl)
   } else {
-    image.attr('src', config.defaults.slideImage)
+    setImageSource(config.defaults.slideImage)
   }
 
   if (slideData.config.qrHidden) {
