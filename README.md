@@ -60,4 +60,5 @@ Use http://blue-news-displays.s3-website.eu-central-1.amazonaws.com/integration/
 0.1.5 - Wire up source text for image with real data, try determine closest crop ratio for images
 0.1.6 - Release setup and actual release
 0.1.9 - Fully featured slide scheduling based on date, specific weekdays and time frames. Automatic reloading is in place once the end of the slides is reached to fetch the latest slides and metadata. Scheduling is applied on every slide transition to be as precise as possible.
+0.1.10 - Load wider images based on image element width
 ```
