@@ -133,13 +133,18 @@ function fillContentIntoNextSlide () {
     if (!imgSrc) return
 
     const currentImageElementWidth = image.width || 0
-    const imgSrcUrl = new URL(imgSrc)
-    const imgSrcWidth = parseInt(imgSrcUrl.searchParams.get('w'))
-    if (isNaN(imgSrcWidth) || imgSrcWidth > currentImageElementWidth) {
+    try {
+      const imgSrcUrl = new URL(imgSrc)
+      const imgSrcWidth = parseInt(imgSrcUrl.searchParams.get('w'))
+      if (isNaN(imgSrcWidth) || imgSrcWidth > currentImageElementWidth) {
+        image.attr('src', imgSrc)
+      } else {
+        imgSrcUrl.searchParams.set('w', currentImageElementWidth)
+        image.attr('src', imgSrcUrl.toString())
+      }
+    } catch (err) {
+      console.error(err)
       image.attr('src', imgSrc)
-    } else {
-      imgSrcUrl.searchParams.set('w', currentImageElementWidth)
-      image.attr('src', imgSrcUrl.toString())
     }
   }
   const qrWrapper = nextSlide.find('.a-qr-code')
