@@ -132,7 +132,7 @@ function fillContentIntoNextSlide () {
   const setImageSource = (imgSrc) => {
     if (!imgSrc) return
 
-    const currentImageElementWidth = image.width || 0
+    const currentImageElementWidth = image.width() || 0
     try {
       const imgSrcUrl = new URL(imgSrc)
       const imgSrcWidth = parseInt(imgSrcUrl.searchParams.get('w'))
@@ -173,7 +173,7 @@ function fillContentIntoNextSlide () {
   // Otherwise takes the regular url with original ratio
   // Fallback is empty image
   if (slideData.imageCrops) {
-    const imageRatio = image.width / image.height
+    const imageRatio = image.width() / image.height()
     const closest = slideData.imageCrops.reduce((prev, curr) => {
       const prevRatio = prev.width / prev.height
       const currRatio = curr.width / curr.height
