@@ -132,7 +132,7 @@ function fillContentIntoNextSlide () {
   const setImageSource = (imgSrc) => {
     if (!imgSrc) return
 
-    const currentImageElementWidth = image.width() || 0
+    const currentImageElementWidth = Math.ceil((image.width() || 0) * 1.2)
     try {
       const imgSrcUrl = new URL(imgSrc)
       const imgSrcWidth = parseInt(imgSrcUrl.searchParams.get('w'))
