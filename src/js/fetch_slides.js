@@ -29,6 +29,7 @@ function toSlideData (document) {
     imageSource: metadata.cinemaSlideImageSource,
     imageUrl: extractImageUrl(metadata),
     imageCrops: extractImageCrops(metadata),
+    brightcoveId: metadata.cinemaSlideBrightcoveId,
     qrLink: qrOverride || articleUrl,
     config: {
       dateSchedule: metadata.cinemaDateSchedule,

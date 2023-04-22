@@ -1,12 +1,35 @@
 import $ from 'jquery'
 import QRCode from 'qrcode'
 import config from '../config'
+import { attachScript } from './attach_script'
 import { getQueryParams } from './get_query_params'
 import { fetchSlides } from './fetch_slides'
 import { filterSlides } from './filter_slides'
 import { appendQueryParams } from './append_query_params'
 
 const state = {
+  plugins: {
+    brightcove: {
+      loaded: false,
+      scriptSrc: config.brightcoveScriptSrc
+    },
+    load (handle, cb) {
+      const target = state.plugins[handle]
+      const scriptSrc = target && target.scriptSrc
+      const loaded = target && target.loaded
+      if (!scriptSrc) return cb(new Error(`No script source configured for ${handle}`), {loaded})
+      if (loaded) return cb(null, {loaded})
+
+      return attachScript({
+        elem: window.document,
+        src: scriptSrc,
+        crossOrigin: 'anonymous'
+      }, () => {
+        state.plugins[handle].loaded = true
+        cb(null, {loaded: true})
+      })
+    }
+  },
   qrProxyParams: [],
   slides: [],
   currentSlideIndex: 0,
@@ -61,6 +84,20 @@ export async function init () {
   if (slides && slides.length) {
     // initial filter based on schedule
     state.slides = filterSlides(slides)
+    // load plugins
+    const enabledPlugins = state.slides.reduce((acc, curr) => {
+      if (!acc.brightcove) {
+        acc.brightcove = !!curr.brightcoveId
+      }
+      return acc
+    }, {})
+    Object.keys(enabledPlugins).forEach((pluginHandle) => {
+      if (!enabledPlugins[pluginHandle]) return
+      state.plugins.load(pluginHandle, (err, state) => {
+        if (err) console.error(err)
+        if (state) console.info(`Plugin "${pluginHandle}"`, state)
+      })
+    })
   }
 
   $('.t-display').addClass(`t-display--variant-${variant || 1}`).addClass('is-initialized')
@@ -128,6 +165,7 @@ function fillContentIntoNextSlide () {
   const flag = nextSlide.find('.m-slide__flag')
   const title = nextSlide.find('.m-slide__title')
   const source = nextSlide.find('.m-slide__source')
+  const imageWrapper = nextSlide.find('.m-slide__image')
   const image = nextSlide.find('.m-slide__image img')
   const setImageSource = (imgSrc) => {
     if (!imgSrc) return
@@ -191,6 +229,15 @@ function fillContentIntoNextSlide () {
     setImageSource(slideData.imageUrl)
   } else {
     setImageSource(config.defaults.slideImage)
+  }
+
+  $('script.acm_ads_banner_config', imageWrapper).remove()
+  if (slideData.brightcoveId) {
+    imageWrapper.append(`
+      <script class="acm_ads_banner_config" type="application/json">
+        {"background":{"blur":0,"bid":"${slideData.brightcoveId}"}}
+      </script>
+    `)
   }
 
   if (slideData.config.qrHidden) {
