@@ -166,6 +166,9 @@ function fillContentIntoNextSlide () {
   const title = nextSlide.find('.m-slide__title')
   const source = nextSlide.find('.m-slide__source')
   const imageWrapper = nextSlide.find('.m-slide__image')
+  if (!$('img', imageWrapper).length) {
+    imageWrapper.append('<img />')
+  }
   const image = nextSlide.find('.m-slide__image img')
   const setImageSource = (imgSrc) => {
     if (!imgSrc) return
@@ -231,7 +234,8 @@ function fillContentIntoNextSlide () {
     setImageSource(config.defaults.slideImage)
   }
 
-  $('script.acm_ads_banner_config', imageWrapper).remove()
+  $('.acm_ads_banner_config', imageWrapper).remove()
+  $('.acm_ads__container', imageWrapper).remove()
   if (slideData.brightcoveId) {
     imageWrapper.append(`
       <script class="acm_ads_banner_config" type="application/json">
