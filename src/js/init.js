@@ -1,35 +1,14 @@
 import $ from 'jquery'
 import QRCode from 'qrcode'
 import config from '../config'
-import { attachScript } from './attach_script'
+import { setupPlugins  } from './plugins'
 import { getQueryParams } from './get_query_params'
 import { fetchSlides } from './fetch_slides'
 import { filterSlides } from './filter_slides'
 import { appendQueryParams } from './append_query_params'
 
 const state = {
-  plugins: {
-    brightcove: {
-      loaded: false,
-      scriptSrc: config.brightcoveScriptSrc
-    },
-    load (handle, cb) {
-      const target = state.plugins[handle]
-      const scriptSrc = target && target.scriptSrc
-      const loaded = target && target.loaded
-      if (!scriptSrc) return cb(new Error(`No script source configured for ${handle}`), {loaded})
-      if (loaded) return cb(null, {loaded})
-
-      return attachScript({
-        elem: window.document,
-        src: scriptSrc,
-        crossOrigin: 'anonymous'
-      }, () => {
-        state.plugins[handle].loaded = true
-        cb(null, {loaded: true})
-      })
-    }
-  },
+  plugins: setupPlugins(),
   qrProxyParams: [],
   slides: [],
   currentSlideIndex: 0,
@@ -93,6 +72,7 @@ export async function init () {
     }, {})
     Object.keys(enabledPlugins).forEach((pluginHandle) => {
       if (!enabledPlugins[pluginHandle]) return
+
       state.plugins.load(pluginHandle, (err, state) => {
         if (err) console.error(err)
         if (state) console.info(`Plugin "${pluginHandle}"`, state)

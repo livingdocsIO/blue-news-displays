@@ -64,4 +64,5 @@ Use http://blue-news-displays.s3-website.eu-central-1.amazonaws.com/integration/
 0.1.11 - Fix crop determination and image elemnet width calculation
 0.1.12 - Mind scaling of image element in slides to provide better quality images
 0.1.13 - Add brightcove plugin and ability to play videos
+0.1.14 - Add enabled flag to brightcove plugin
 ```
