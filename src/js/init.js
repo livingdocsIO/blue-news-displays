@@ -164,7 +164,6 @@ function fillContentIntoNextSlide () {
         image.attr('src', imgSrcUrl.toString())
       }
     } catch (err) {
-      console.error(err)
       image.attr('src', imgSrc)
     }
   }
@@ -236,12 +235,16 @@ function fillContentIntoNextSlide () {
     qrWrapper.attr('data-content', config.defaults.qrCtaText)
   }
 
-  const qrLinkWithParams = appendQueryParams(slideData.qrLink, state.qrProxyParams)
-  QRCode.toDataURL(qrLinkWithParams, {margin: 1})
-    .then(url => {
-      qr.attr('src', url)
-    })
-    .catch(err => {
-      console.error(err)
-    })
+  // NOTE: for performance reasons compute the QR code a bit later
+  // as it's anyway shown later on (5.5s delay)
+  window.setTimeout(() => {
+    const qrLinkWithParams = appendQueryParams(slideData.qrLink, state.qrProxyParams)
+    QRCode.toDataURL(qrLinkWithParams, {margin: 1})
+      .then(url => {
+        qr.attr('src', url)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }, 1000)
 }
