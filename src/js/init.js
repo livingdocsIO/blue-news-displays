@@ -227,6 +227,19 @@ function fillContentIntoNextSlide () {
     qrWrapper.addClass('is-hidden')
   } else {
     qrWrapper.removeClass('is-hidden')
+
+    // NOTE: for performance reasons compute the QR code a bit later
+    // as it's anyway shown later on (5.5s delay)
+    window.setTimeout(() => {
+      const qrLinkWithParams = appendQueryParams(slideData.qrLink, state.qrProxyParams)
+      QRCode.toDataURL(qrLinkWithParams, {margin: 1})
+        .then(url => {
+          qr.attr('src', url)
+        })
+        .catch(err => {
+          console.error(err)
+        })
+    }, 1000)
   }
 
   if (slideData.config.ctaText) {
@@ -234,17 +247,4 @@ function fillContentIntoNextSlide () {
   } else {
     qrWrapper.attr('data-content', config.defaults.qrCtaText)
   }
-
-  // NOTE: for performance reasons compute the QR code a bit later
-  // as it's anyway shown later on (5.5s delay)
-  window.setTimeout(() => {
-    const qrLinkWithParams = appendQueryParams(slideData.qrLink, state.qrProxyParams)
-    QRCode.toDataURL(qrLinkWithParams, {margin: 1})
-      .then(url => {
-        qr.attr('src', url)
-      })
-      .catch(err => {
-        console.error(err)
-      })
-  }, 1000)
 }
